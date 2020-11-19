@@ -1,0 +1,19 @@
+.Login
+{
+    padding-left: 10vh;
+}
+
+.Login-header 
+{
+    padding: auto;
+}
+
+.Login-container
+{
+    width: 70vh;
+    padding: 50px;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+

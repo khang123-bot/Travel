@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "displayName": "json-server",
+      "password": "typicode",
+      "email": "font@gmail.com"
+    },
+    {
+      "displayName": "Font",
+      "password": "asdasd",
+      "email": "Somewhere@gmail.com",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,27 @@
+.image
+{
+    width: 2000vh; /* width of container */
+    height: 200px; /* height of container */
+    margin: auto;
+    object-fit: cover;
+
+}
+
+.Journey
+{
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+.Center
+{
+    margin-top: 20vh;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
