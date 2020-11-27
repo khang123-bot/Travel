@@ -10,7 +10,7 @@ class userController {
                     result: data
                 }
             });
-        } catch (e){
+        } catch (e) {
             res.status(200).json({
                 status: "FAIL",
                 errors: [{
@@ -31,7 +31,7 @@ class userController {
                     result: data
                 }
             });
-        } catch (e){
+        } catch (e) {
             res.status(200).json({
                 status: "FAIL",
                 errors: [{
@@ -52,7 +52,7 @@ class userController {
                     result: data
                 }
             });
-        } catch (e){
+        } catch (e) {
             res.status(200).json({
                 status: "FAIL",
                 errors: [{
@@ -73,7 +73,28 @@ class userController {
                     result: data
                 }
             });
-        } catch (e){
+        } catch (e) {
+            res.status(200).json({
+                status: "FAIL",
+                errors: [{
+                    code: 1000,
+                    message: "SERVER ERROR"
+                }],
+                data: null
+            });
+        }
+    }
+    static async getAllUser(req, res, next) {
+        try {
+            let data = await userService.getAllUserService(req);
+            res.status(200).json({
+                status: "SUCCESS",
+                errors: null,
+                data: {
+                    result: data
+                }
+            });
+        } catch (e) {
             res.status(200).json({
                 status: "FAIL",
                 errors: [{

@@ -2,7 +2,7 @@
 const queryBuilder = require('../config/database');
 const uuid = require('uuid');
 //class
-class userService {
+class orderService {
     static async getAllCarService(req) {
         try {
             let result = await queryBuilder.select().table('cars');
@@ -102,4 +102,4 @@ class userService {
     }
     
 }
-module.exports = userService;
+module.exports = orderService;

@@ -19,6 +19,15 @@ class userService {
             return e;
         }
     }
+    static async getAllUserService(req) {
+        try {
+            let data = await queryBuilder.select('user_description.user_id','user_description.firstname','user_description.lastname','displayName','username','user_description.address','user_description.phone','user_description.img','user_description.dateOfBirth','user_description.country','user_description.gender').from('user').innerJoin('user_description','user.user_id','user_description.user_id');            
+            return data;
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
     static async updateUserPasswordService(req) {
         try {
             let idUser = req.params.user_id;
