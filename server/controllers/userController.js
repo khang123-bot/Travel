@@ -84,9 +84,9 @@ class userController {
             });
         }
     }
-    static async getAllUser(req, res, next) {
+    static async getUserById(req, res, next) {
         try {
-            let data = await userService.getAllUserService(req);
+            let data = await userService.getUserByIdService(req);
             res.status(200).json({
                 status: "SUCCESS",
                 errors: null,

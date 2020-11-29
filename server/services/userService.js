@@ -19,9 +19,10 @@ class userService {
             return e;
         }
     }
-    static async getAllUserService(req) {
+    static async getUserByIdService(req) {
         try {
-            let data = await queryBuilder.select('username','displayName').from('user');
+            const id = req.params.idUser;
+            let data = await queryBuilder('user').where({user_id: `${id}`}).select('username','displayName')
             return data;
         } catch (e) {
             console.log(e);
