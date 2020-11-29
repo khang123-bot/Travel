@@ -19,6 +19,28 @@ class userService {
             return e;
         }
     }
+    static async createUserDescService(req) {
+        try {
+            let id = req.params.userId;
+            let params = req.body;
+            let dataInsert = {
+                user_id: id,
+                firstname: params.firstname,
+                lastname: params.lastname,
+                address: params.address,
+                phone: params.phone,
+                img: params.img,
+                dateOfBirth: params.dateOfBirth,
+                country: params.country,
+                gender: params.gender
+            }
+            await queryBuilder('user_description').insert(dataInsert);
+            return "SUCCESS";
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
     static async getUserByIdService(req) {
         try {
             const id = req.params.idUser;
