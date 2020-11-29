@@ -21,7 +21,7 @@ class userService {
     }
     static async getAllUserService(req) {
         try {
-            let data = await queryBuilder.select('user_description.user_id','user_description.firstname','user_description.lastname','displayName','username','user_description.address','user_description.phone','user_description.img','user_description.dateOfBirth','user_description.country','user_description.gender').from('user').innerJoin('user_description','user.user_id','user_description.user_id');            
+            let data = await queryBuilder.select('username','displayName').from('user');
             return data;
         } catch (e) {
             console.log(e);
@@ -70,11 +70,12 @@ class userService {
 
             let checkPass = await queryBuilder('user').where("password", password).first();
             
+            let dataId = await queryBuilder('user').where({username:`${email}`,password:`${password}`}).select('user_id');  
             if(typeof(checkEmail)==='undefined' || typeof(checkPass)==='undefined'){
                 return "FAIL";
             }else{
                 if(email==checkEmail.username && password==checkPass.password){
-                    return "SUCCESS"} else return "FAIL";
+                    return dataId} else return "FAIL";
             }
         } catch (e) {
             console.log(e);
