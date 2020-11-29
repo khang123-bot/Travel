@@ -19,6 +19,20 @@ class userService {
             return e;
         }
     }
+    static async checkUserUpdatedService(req) {
+        try {
+            let id = req.params.idUser;
+            let data = await queryBuilder('user_description').where("user_id",`${id}`).first();
+            console.log(typeof(data));
+            if(typeof(data)==="undefined" || !data){
+                return "UNEXISTED";
+            }
+            return "EXISTED"
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
     static async createUserDescService(req) {
         try {
             let id = req.params.userId;
