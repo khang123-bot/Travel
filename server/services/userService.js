@@ -23,7 +23,19 @@ class userService {
         try {
             let id = req.params.idUser;
             let data = await queryBuilder('user_description').where("user_id",`${id}`).first();
-            console.log(typeof(data));
+            if(typeof(data)==="undefined" || !data){
+                return "UNEXISTED";
+            }
+            return "EXISTED"
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
+    static async checkEmailExistService(req) {
+        try {
+            let email = req.body.email;
+            let data = await queryBuilder('user').where("username",`${email}`).first();
             if(typeof(data)==="undefined" || !data){
                 return "UNEXISTED";
             }
@@ -114,6 +126,17 @@ class userService {
                 if(email==checkEmail.username && password==checkPass.password){
                     return dataId} else return "FAIL";
             }
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
+    static async deleteUserService(req) {
+        try {
+            let userid = req.params.user_id;
+            await queryBuilder('user').where("user_id",userid).del();
+            await queryBuilder('user_description').where("user_id",userid).del();
+            return "SUCCESS";
         } catch (e) {
             console.log(e);
             return e;

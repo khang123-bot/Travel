@@ -6,6 +6,7 @@ let app = express();
 //Router
 let userRouter = require('./routes/userRouter');
 let orderRouter = require('./routes/orderRouter');
+let carRouter = require('./routes/carRouter');
 
 //bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -25,6 +26,7 @@ app.get('/api',(req,res,next)=>{
 //use router
 app.use('/user',userRouter);
 app.use('/order',orderRouter);
+app.use('/car',carRouter);
 
 //URL typed incorrect with API
 app.use('*',(req,res,next)=>{

@@ -47,7 +47,7 @@ class orderService {
             let userId = req.params.idUser;
             let carId = req.params.idCar;
             let dataInsert = {
-                order_id: uuid.v4(),
+                order_id: uuid.v4(),    
                 created_date: new Date(),
                 pick_location: param.pick_location,
                 pick_up_date: param.pick_up_date,
@@ -56,7 +56,7 @@ class orderService {
                 user_id: userId,
                 car_id: carId
             }
-            let result = await queryBuilder('orders').insert(dataInsert)
+            await queryBuilder('orders').insert(dataInsert);
             return "SUCCESS";
         } catch (e) {
             console.log(e);

@@ -12,5 +12,7 @@ router.put('/update-user-password-api/:user_id',userController.updateUserPasswor
 router.post('/create-user-desc/:userId', userController.createUserDesc)
 router.put('/update-user-information-api/:user_id',userController.updateUserInfor)
 
+router.post('/check-email-exist',userController.checkEmailExist)
+router.delete('/delete-user/:user_id',userController.deleteUser)
 
 module.exports = router;
